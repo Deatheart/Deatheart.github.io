@@ -2,8 +2,8 @@ body {
     font-family: "微软雅黑";
 }
 
-header {
-
+header a{
+    color: black;
 }
 
 footer {
