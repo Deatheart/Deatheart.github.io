@@ -1,37 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../assets/css/index.css" rel="stylesheet">
-  <script src="../assets/js/jquery-1.11.1.min.js"></script>
-  <script src="../bootstrap/js/bootstrap.min.js"></script>
-  <title>Deatheart Pages</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script type="text/javascript" src="../assets/js/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css">
+    <link href="../assets/css/index.css" rel="stylesheet">
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        //$(".list-group").children(".list-group-item").first().addClass("active");
+    });
+    </script>
 </head>
 <body>
-  <header class="navbar navbar-static-top">
+
+  <nav class="navbar navbar-default" role="navigation">
     <div class="container">
-      <div class="navbar-header">
-        <a href="./" class="navbar-brand"><span class="glyphicon glyphicon-home"></span> Home </a>
-      </div>
-      <nav class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="#"> Blog </a></li>
-          <li class="disabled"><a href="#"> Pages </a></li>
-          <li><a href="../about.html"> About </a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+      <div class="container-fluid">
+
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html"><span class="glyphicon glyphicon-home"></span> Deatheart</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="../blog/"> Blog </a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="./index.html">index</a></li>
+                <li class="divider"></li>
+                <li><a href="./keep-fit.html">keep fit</a></li>
+              </ul>
+            </li>
+          </ul>
+          
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../about.html">About Me</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+
+      </div><!-- /.container-fluid -->
+    </div><!-- /.container-->
+  </nav>
 
     <div class="container">
-        <h1 class="text-center">Deatheart Pages List</h1>
-        <div class="btn-group btn-group-justified">
-            <a href="./KeepFit/" class="btn btn-info">KeepFit</a>
-            <a href="" class="btn btn-default" disabled="disabled"> </a>
-            <a href="" class="btn btn-default" disabled="disabled"> </a>
+        <div class="list-group">
+            <div class="list-group-item">2014年9月20日， <code><a href="./keep-fit.html">keep fit</a></code> 页面创建。</div>
+            <div class="list-group-item">2014年9月20日， <code>Pages</code> 首页创建。</div>
         </div>
     </div>
+
+  <footer>
+    <div class="container">
+      <div class="text-center">CopyLeft</div>
+    </div>
+  </footer>
+
 </body>
 </html>
