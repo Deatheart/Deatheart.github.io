@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script type="text/javascript" src="../assets/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="../assets/js/dataTables.bootstrap.js"></script>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css">
     <link href="../assets/css/index.css" rel="stylesheet">
+    <link href="../assets/css/dataTables.bootstrap.css" rel="stylesheet">
     <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../assets/js/keep-fit.js"></script>
     <title>Keep Fit - Deatheart</title>
 </head>
 <body>
@@ -58,19 +62,11 @@
     </div><!-- /.container-->
   </nav>
 
-    <div class="container">
-        <div class="table-responsive">
-            <table class="table table-bordered table-hover table-striped">
-                <tr><th>编号</th><th>六艺</th>    <th>十式</th>      <th>目标</th><th> 完成日期 </th></tr>
-                <tr><td>6</td>   <td>桥</td>      <td>短桥</td>      <td>1x10</td><td>          </td></tr>
-                <tr><td>5</td>   <td>倒立撑</td>  <td>靠墙顶立</td>  <td>30秒</td><td>          </td></tr>
-                <tr><td>4</td>   <td>深蹲</td>    <td>肩倒立深蹲</td><td>1x10</td><td>          </td></tr>
-                <tr><td>3</td>   <td>引体向上</td><td>垂直引体</td>  <td>1x10</td><td>          </td></tr>
-                <tr><td>2</td>   <td>举腿</td>    <td>坐姿屈膝</td>  <td>1x10</td><td>          </td></tr>
-                <tr><td>1</td>   <td>俯卧撑</td>  <td>墙壁俯卧撑</td><td>1x10</td><td>2014-09-20</td></tr>
-            </table>
-        </div>
+  <div class="container">
+    <div class="table-responsive">
+      <table id="my-table" class="table table-bordered table-hover table-striped"></table>
     </div>
+  </div>
 
   <footer>
     <div class="container">
