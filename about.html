@@ -9,6 +9,21 @@
   <script src="assets/js/jquery-1.11.1.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
   <title>About - Deatheart</title>
+  <script src="assets/js/jquery.qrcode.min.js"></script>
+  <script>
+    var qrlen = 150;
+    $(document).ready(function() {
+        $("#qr-code").qrcode({
+            width: qrlen,
+            height: qrlen,
+            text: document.URL,
+        });
+    });
+  </script>
+  <style>
+aside {float: right;}
+article {float: left;}
+  </style>
 </head>
 <body>
 
@@ -58,8 +73,8 @@
     </div><!-- /.container-->
   </nav>
 
+  <div class="container">
   <article>
-    <div class="container">
       <section>
         <h1>About Me</h1>
         <p>My name is Chen Kaixiang, born in 1990s.</p>
@@ -74,11 +89,12 @@
         </ul>
         <p>Or you can leave your message below. :-)</p>
       </section>
-    </div>
   </article>
 
   <aside>
+    <div id="qr-code"></div>
   </aside>
+  </div>
 
   <footer>
     <div class="container">
