@@ -1,4 +1,10 @@
+function updateScore() {
+    console.log( $("#score").attr("score") );
+    $("#score").text( "score: "+$("#score").attr("score") );
+};
+
 $(document).ready(function() {
+    updateScore();
 
     var conWidth = $(".container").width();
     var borderWidth = 8;
