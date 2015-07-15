@@ -97,26 +97,24 @@ function caculate() {
     // alert("test");
     // $("table").fadeToggle();
 };
-$(window).resize(function() {
-    var xPosition = ($(".container").outerWidth(true) + $("h1").innerWidth())/2;
-    var yPosition = $(window).height() / 2;
-    $("#update").css({"position": "fixed", "left": xPosition, "top": yPosition});
-});
+function updatePosition() {
+     var xPosition = ($(".container").outerWidth(true) + $("h1").innerWidth())/2;
+     var yPosition = $(window).height() / 2;
+     $("#update").css({"position": "fixed", "left": xPosition, "top": yPosition});
+};
+// $(window).resize(updatePosition);
 $(window).bind("beforeunload", function() {
     // return "The data will not be saved!";
 });
 $(document).ready(function() {
-    var xPosition = ($(".container").outerWidth(true) + $("h1").innerWidth())/2;
-    var yPosition = $(window).height() / 2;
-    $("#update").css({"position": "fixed", "left": xPosition, "top": yPosition});
+    // updatePosition();
     $("#update").click(caculate);
 });
         </script>
     </head>
     <body>
-        <div id="update"> <button class="btn btn-default">更<br/>新</button> </div>
         <div class="container">
-            <h1> 郁江巷路道路新建工程项目绩效评价打分结果 </h1>
+            <h1> 郁江巷路道路新建工程项目绩效评价打分结果 <span> <button class="btn btn-default" id="update">更新</button> </span> </h1>
             <table class="table table-bordered">
                 <tr><td>一级指标</td><td>二级指标</td><td>三级指标</td><td>四级指标</td><td>分值</td><td>得分</td></tr>
                 <tr>
