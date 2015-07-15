@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="../assets/js/jquery-1.11.1.min.js"></script>
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css">
+        <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script>
+var model = {
+    "A项目决策": {
+        "A1项目立项": {
+            "A11适应上海市、宝山区区域规划": 2,
+            "A12立项依据的充分性": 2,
+            "A13项目立项规范性": 2
+        },
+        "A2项目目标": {
+            "A21 绩效目标合理性": 2,
+            "A22 绩效指标明确性": 2
+        }
+    },
+    "B项目管理": {
+        "B1投入管理": {
+            "B11预算执行率": 2,
+            "B12镇配套资金到位率": 2,
+            "B13到位及时率": 2
+        },
+        "B2财务管理": {
+            "B21财务管理制度健全性": 2,
+            "B22财务制度执行": {
+                "B221工程成本控制": 1.5,
+                "B222工程审计及时性": 1.5,
+                "B223资金专户管理制度执行": 1.5,
+                "B224会计信息质量": 1.5
+            }
+        },
+        "B3项目实施": {
+            "B31项目实施保障制度健全性": 2,
+            "B32相关制度和措施执行": {
+                "B321工程招投标制度": 2,
+                "B322工程合同变更情况": 2,
+                "B323工程质量检验制度执行": 2,
+            },
+            "B33文明施工情况": 3,
+        },
+    },
+    "C项目绩效": {
+        "C1项目产出": {
+            "C11实际完成率": {
+                "C111前期动拆迁工程量完成率" :3,
+                "C112前期管线搬迁改造工程量完成率" : 1.5,
+                "C113道路新建工程量完成率": 2,
+                "C114交通安全设施工程量完成率": 1,
+                "C115绿化种植工程量完成率": 1,
+                "C116安装机非隔离护栏工程量完成率": 1,
+                "C117废物箱工程量完成率": 0.5,
+            },
+            "C12完成及时率": {
+                "C121前期动拆迁工程量完成及时率": 3,
+                "C122前期管线搬迁改造工程量完成及时率": 1.5,
+                "C123道路新建工程完成及时率": 2,
+                "C124交通安全设施工程完成及时率": 1,
+                "C125绿化种植工程完成及时率": 1,
+                "C126安装机非隔离护栏工程完成及时率": 1,
+                "C127废物箱工程完成及时率": 0.5,
+            },
+            "C13一次验收通过率": {
+                "C131前期动拆迁工程一次验收通过率": 3,
+                "C132前期管线搬迁改造工程一次验收通过率": 1.5,
+                "C133道路新建工程一次验收通过率": 2,
+                "C134交通安全设施工程一次验收通过率": 1,
+                "C135绿化种植工程一次验收通过率": 1,
+                "C136安装机非隔离护栏工程一次验收通过率": 1,
+                "C137废物箱工程一次验收通过率": 0.5,
+            },
+        },
+        "C2项目效益": {
+            "C21社会效益": {
+                "C211道路通行能力": 5,
+                "C212缓解区域内交通拥堵状况": 5,
+                "C213配套轨道交通": 5,
+            },
+            "C22生态效益——项目绿化密度" :5,
+            "C23影响力": {
+                "C231周边环境改善": 3,
+                "C232长期管理机制": 3,
+            },
+            "C24服务对象满意度": {
+                "C241周边居民满意度": 5,
+                "C242项目主管单位满意度": 2,
+                "C243项目建设管理单位满意度": 2,
+            },
+        },
+    },
+};
+function caculate() {
+    // alert("test");
+    // $("table").fadeToggle();
+};
+$(window).resize(function() {
+    var xPosition = ($(".container").outerWidth(true) + $("h1").innerWidth())/2;
+    var yPosition = $(window).height() / 2;
+    $("#update").css({"position": "fixed", "left": xPosition, "top": yPosition});
+});
+$(window).bind("beforeunload", function() {
+    // return "The data will not be saved!";
+});
+$(document).ready(function() {
+    var xPosition = ($(".container").outerWidth(true) + $("h1").innerWidth())/2;
+    var yPosition = $(window).height() / 2;
+    $("#update").css({"position": "fixed", "left": xPosition, "top": yPosition});
+    $("#update").click(caculate);
+});
+        </script>
+    </head>
+    <body>
+        <div id="update"> <button class="btn btn-default">更<br/>新</button> </div>
+        <div class="container">
+            <h1> 郁江巷路道路新建工程项目绩效评价打分结果 </h1>
+            <table class="table table-bordered">
+                <tr><td>一级指标</td><td>二级指标</td><td>三级指标</td><td>四级指标</td><td>分值</td><td>得分</td></tr>
+                <tr>
+                    <td colspan="4">A项目决策</td>
+                    <td>10</td>
+                    <td> <input type="text" placeholder="自动计算" disabled> </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td colspan="3">A1项目立项</td>
+                    <td>6</td>
+                    <td> <input type="text" placeholder="自动计算" disabled> </td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2">A11适应上海市、宝山区区域规划</td>
+                    <td>2</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2">A12立项依据的充分性</td>
+                    <td>2</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2">A13项目立项规范性</td> 
+                    <td>2</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td colspan="3">A2项目目标</td>
+                    <td>4</td>
+                    <td> <input type="text" placeholder="自动计算" disabled> </td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2">A21 绩效目标合理性</td>
+                    <td>2</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2">A22 绩效指标明确性</td> 
+                    <td>2</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="4">B项目管理</td>
+                    <td>25</td>
+                    <td> <input type="text" placeholder="自动计算" disabled> </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td colspan="3">B1投入管理</td>
+                    <td>6</td>
+                    <td> <input type="text" placeholder="自动计算" disabled> </td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2">B11预算执行率</td> 
+                    <td>2</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2">B12镇配套资金到位率</td> 
+                    <td>2</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2">B13到位及时率</td> 
+                    <td>2</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td colspan="3">B2财务管理</td>
+                    <td>8</td>
+                    <td> <input type="text" placeholder="自动计算" disabled> </td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2">B21财务管理制度健全性</td> 
+                    <td>2</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2">B22财务制度执行</td> 
+                    <td>6</td>
+                    <td> <input type="text" placeholder="自动计算" disabled> </td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>B221工程成本控制</td> 
+                    <td>1.5</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>B222工程审计及时性</td> 
+                    <td>1.5</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>B223资金专户管理制度执行</td> 
+                    <td>1.5</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>B224会计信息质量</td> 
+                    <td>1.5</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td colspan="3">B3项目实施</td>
+                    <td>11</td>
+                    <td> <input type="text" placeholder="自动计算" disabled> </td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2">B31项目实施保障制度健全性</td> 
+                    <td>2</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2">B32相关制度和措施执行</td> 
+                    <td>6</td>
+                    <td> <input type="text" placeholder="自动计算" disabled> </td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>B321工程招投标制度</td> 
+                    <td>2</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>B322工程合同变更情况</td> 
+                    <td>2</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>B323工程质量检验制度执行</td> 
+                    <td>2</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2">B33文明施工情况</td> 
+                    <td>2</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="4">C项目绩效</td>
+                    <td>65</td>
+                    <td> <input type="text" placeholder="自动计算" disabled> </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td colspan="3">C1项目产出</td>
+                    <td>30</td>
+                    <td> <input type="text" placeholder="自动计算" disabled> </td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2">C11实际完成率</td> 
+                    <td>10</td>
+                    <td> <input type="text" placeholder="自动计算" disabled> </td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C111前期动拆迁工程量完成率</td> 
+                    <td>3</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C112前期管线搬迁改造工程量完成率</td> 
+                    <td>1.5</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C113道路新建工程量完成率</td> 
+                    <td>2</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C114交通安全设施工程量完成率</td> 
+                    <td>1</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C115绿化种植工程量完成率</td> 
+                    <td>1</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C116安装机非隔离护栏工程量完成率</td> 
+                    <td>1</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C117废物箱工程量完成率</td> 
+                    <td>0.5</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2">C12完成及时率</td> 
+                    <td>10</td>
+                    <td> <input type="text" placeholder="自动计算" disabled> </td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C121前期动拆迁工程量完成及时率</td> 
+                    <td>3</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C122前期管线搬迁改造工程量完成及时率</td> 
+                    <td>1.5</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C123道路新建工程完成及时率</td> 
+                    <td>2</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C124交通安全设施工程完成及时率</td> 
+                    <td>1</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C125绿化种植工程完成及时率</td> 
+                    <td>1</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C126安装机非隔离护栏工程完成及时率</td> 
+                    <td>1</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C127废物箱工程完成及时率</td> 
+                    <td>0.5</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2">C13一次验收通过率
+                    <td>10</td>
+                    <td> <input type="text" placeholder="自动计算" disabled> </td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C131前期动拆迁工程一次验收通过率</td> 
+                    <td>3</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C132前期管线搬迁改造工程一次验收通过率</td> 
+                    <td>1.5</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C133道路新建工程一次验收通过率</td> 
+                    <td>2</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C134交通安全设施工程一次验收通过率</td> 
+                    <td>1</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C135绿化种植工程一次验收通过率</td> 
+                    <td>1</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C136安装机非隔离护栏工程一次验收通过率</td> 
+                    <td>1</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C137废物箱工程一次验收通过率</td> 
+                    <td>0.5</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td colspan="3">C2项目效益</td>
+                    <td>6</td>
+                    <td> <input type="text" placeholder="自动计算" disabled> </td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2">C21社会效益</td> 
+                    <td>15</td>
+                    <td> <input type="text" placeholder="自动计算" disabled> </td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C211道路通行能力</td> 
+                    <td>5</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C212缓解区域内交通拥堵状况</td> 
+                    <td>5</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C213配套轨道交通</td> 
+                    <td>5</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2">C22生态效益——项目绿化密度</td> 
+                    <td>5</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2">C23影响力</td> 
+                    <td>6</td>
+                    <td> <input type="text" placeholder="自动计算" disabled> </td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C231周边环境改善</td> 
+                    <td>3</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C232长期管理机制</td> 
+                    <td>3</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2">C24服务对象满意度</td> 
+                    <td>2</td>
+                    <td> <input type="text" placeholder="自动计算" disabled> </td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C241周边居民满意度</td> 
+                    <td>5</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C242项目主管单位满意度</td> 
+                    <td>2</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td>C243项目建设管理单位满意度</td> 
+                    <td>2</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="4">总分</td>
+                    <td>100</td>
+                    <td> <input type="text" placeholder="自动计算" disabled> </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
