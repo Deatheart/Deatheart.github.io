@@ -13,7 +13,25 @@
     <script type="text/javascript">
     $(document).ready(function() {
         $(".list-group").children(".list-group-item").first().addClass("active");
+        $("#submit").click(sendEmail);
     });
+    function sendEmail(){
+        var identity = $('input:radio:checked').val();
+        var candidateName=$("[name='candidate-name']").val(),
+        candidateEmail=$("[name='candidate-email']").val(),
+        candidatePhone=$("[name='candidate-phone']").val(),
+        preferJob=$("[name='prefer-job']").val(),
+        preferBG=$("[name='prefer-bg']").val();
+        body="My Name is: "+candidateName+"%0a%0d"
+            +"My Identity is: "+identity+"%0a%0d"
+            +"My Email Address is: "+candidateEmail+"%0a%0d"
+            +"My Phone Number is: "+candidatePhone+"%0a%0d"
+            +"My Prefer Job is: "+preferJob+"%0a%0d"
+            +"My Prefer Business Group is: "+preferBG+"%0a%0d"
+            ;
+        $("#send").attr("href","mailto:deatheart@yeah.net?subject=InternalRecommend&body="+body);
+        document.getElementById("send").click();
+    }
     </script>
 </head>
 <body>
@@ -79,7 +97,7 @@
             <li>未进入直面通道不影响后续招聘流程，可参加统一在线笔试。</li>
         </ul>
         <h3>招聘职位</h3>
-        <div class=".table-responsive">
+        <div class="table-responsive">
             <table class="table table-striped">
                 <tr><th>通道</th><th>职位名称</th><th>备注</th></tr>
                 <tr><td>后台</td><td>后台开发工程师</td><td></td></tr>
@@ -118,6 +136,50 @@
         </ul>
         <h3>内推方法</h3>
         <p>发送个人简历到 deatheart@yeah.net ，注明姓名，手机号码，联系电子邮箱，意向岗位和意向事业群(option)。</p>
+        <h3>内推表单</h3>
+        <p>如果你使用本地邮箱工具（如Foxmail, Outlook等），可以填写下面的表单，提交后，会生成一封按照模板写好的邮件发送给我</p>
+        <form>
+        <ul class="email table-responsive">
+            <table class="table table-striped">
+                <tr>
+                    <td>身份：</td>
+                    <td> <radio>
+                        <label><input name="identity" type="radio" value="在校生" />在校生申请实习岗位</label>
+                        <label><input name="identity" type="radio" value="应届生" />应届生申请正式工作</label>
+                    </radio> </td>
+                </tr>
+                <tr><td>姓名：</td><td><input name="candidate-name" type="text"/></td></tr>
+                <tr><td>手机号码：</td><td><input name="candidate-phone" type="tel"/></td></tr>
+                <tr><td>常用邮箱：</td><td><input name="candidate-email" type="email"/></td></tr>
+                <tr>
+                    <td>意向职位：</td>
+                    <td><select name="prefer-job">
+                            <option value="后台开发工程师">后台开发工程师</option>
+                            <option value="Web前端开发工程师">Web前端开发工程师</option>
+                            <option value="iOS开发工程师">iOS开发工程师</option>
+                            <option value="Android开发工程师">Android开发工程师</option>
+                            <option value="数据开发工程师">数据开发工程师</option>
+                            <option value="测试开发工程师">测试开发工程师</option>
+                            <option value="机器学习/数据挖掘算法工程师">机器学习/数据挖掘算法工程师</option>
+                            <option value="自然语言处理开发工程师">自然语言处理开发工程师</option>
+                            <option value="财务专员">财务专员</option>
+                </select> </td> </tr>
+                <tr><td>意向事业群：</td><td><select name="prefer-bg">
+                            <option value="都喜欢">都喜欢</option>
+                            <option value="餐饮平台">餐饮平台</option>
+                            <option value="点评平台及综合事业群">点评平台及综合事业群</option>
+                            <option value="广告平台">广告平台</option>
+                            <option value="技术工程及基础数据平台">技术工程及基础数据平台</option>
+                            <option value="金融服务平台">金融服务平台</option>
+                            <option value="客服平台部">客服平台部</option>
+                            <option value="美团平台及酒旅事业群">美团平台及酒旅事业群</option>
+                            <option value="企业平台">企业平台</option>
+                </select> </td> </tr>
+                <tr><td colspan="2"><button id="submit" type="button">填好了，帮我寄出去！</button></td>
+            </table>
+        </ul>
+        </form>
+        <a href="mailto" id="send"></a>
     </div>
 
   <footer>
